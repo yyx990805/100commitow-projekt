@@ -1,7 +1,8 @@
-const tests = [
+const _tests = [
   test1,
   test2,
   test3,
+  ...Object.keys(window).filter(k => k.startsWith('test')).map(k => window[k]),
 ];
 
 function test1(document, window) {
@@ -27,8 +28,20 @@ async function test3() {
   console.assert(dest.classList.contains('active'), 'menu entry does not have .active, it has', dest.classList, {dest})
 }
 
-function runTests() {
-  return tests.map(async (e, i, arr) => {
+function testAppGeneral() {
+  // non-existent routes should show its endpoint as string
+}
+
+function testMainEntriesView() {
+  // should render initial entries
+  // should render title, short and sentiment plus minus
+  // should parse plus minus as int
+  // in devmode should be clone last entry
+  // check for new entries should be disabled (if the api endpoint is not operational)
+}
+
+async function runTests() {
+  return _tests.map(async (e, i, arr) => {
     [await e(document, window), e];
     console.info(`Test ${i} executed.`)
   })

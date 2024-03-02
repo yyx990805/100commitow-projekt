@@ -1,0 +1,24 @@
+.list_entries {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.list__entry {
+  border: 1px solid gray;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.list__entry {
+  margin-top: 12px;
+}
+
+.list__entry > h2 {
+  margin-top: 0px;
+}
+
+@media (min-width: 700px) {
+  .list__entry {
+    max-width: 700px;
+  }
+}
