@@ -15,4 +15,5 @@ Na chwilę obecną wykonano następujące mechanizmy:
 * Stylowanie RWD `@media`
 * Przykładowy wpis (fixture)
 * Klonowanie ostatniego wpisu (devmode)
+* Autorejestrowanie testów w systemie (`global scope` w js)
 * Toggling devtools (`contextmenu` na `#navbar`)
