@@ -11,3 +11,9 @@ Na chwilę obecną wykonano następujące mechanizmy:
 * Treści opisów podstron przechowywane w odizolowaniu (przyszła integracja z CMS?)
 * Sygnalizowanie obecnie aktywnej podstrony
 * Mechanizm uruchamiania testów w miejscu wdrożenia aplikacji (prawy klik na navbar)
+* Widok listy wpisów
+* Stylowanie RWD `@media`
+* Przykładowy wpis (fixture)
+* Klonowanie ostatniego wpisu (devmode)
+* Autorejestrowanie testów w systemie (`global scope` w js)
+* Toggling devtools (`contextmenu` na `#navbar`)

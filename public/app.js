@@ -20,19 +20,52 @@
     methods: {
       enableDevtools(ev) {
         if(!this.$root.dev) ev.preventDefault();
-        this.$root.dev = true;
+        this.$root.dev = !this.$root.dev;
         this.$forceUpdate()
       },
     },
   }
 
+  const XMainList = {
+    name: 'x-main-list',
+    template: `
+      <div>
+        <ul class="list_entries">
+          <li v-for="e in $root.entries" class="list__entry">
+            ` + ('TODO is there a way, to handle jsdoc type autocompletion here?', '') + `
+            <h2>{{e.title}}</h2>
+            <span style="float: right" v-html="getSentiment(e)"></span>
+            <p>{{e.short}}</p>
+            <button title="chwilowo niedostępne">Czytaj</button>
+          </li>
+        </ul>
+        <div>
+          <button disabled>Sprawdź nowe</button>
+          <button v-if="$root.dev" @click="() => {$root.entries.push(...$root.entries.slice(-1))}">Powiel ostatnie</button>
+        </div>
+      </div>
+    `,
+    methods: {
+      /** @typedef {import('./initdata').Entry} Entry */
+      getSentiment(/** @type Entry */ e) {
+        return `<span :title='${JSON.stringify(e.sentiment)}'>${e?.sentiment?.plus || 0}:-${parseInt(e?.sentiment?.minus, 10) || 0}</span>`
+      },
+    },
+  }
+
   const XApp = {
+    components: {
+      'x-main-list': XMainList, // catchy and tricky
+    },
     template: `
       <div>
         <nav-100c/>
         <div class="container">
           <div class="starter-template">
             <div v-html="STRINGS[\`INFO_\${hash}\`]"></div>
+            <x-main-list v-if="$root.hash === ''">
+            </x-main-list>
+            <div v-else>{{ hash }}</div>
           </div>
         </div>
       </div>
@@ -46,6 +79,7 @@
     template: XApp.template || '#x-app',
     components: {
       'nav-100c': XNav,
+      'x-main-list': XMainList,
     },
     el: '#app',
     data: () => ({
@@ -53,6 +87,7 @@
       env,
       dev: false,
       STRINGS: window.STRINGS,
+      entries: window.ENTRIES,
     }),
     mounted() {
       window.addEventListener('hashchange', (ev) => {
