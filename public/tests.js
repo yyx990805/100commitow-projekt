@@ -1,7 +1,4 @@
 const _tests = [
-  // test1,
-  // test2,
-  // test3, // no  needed, all tests will be detected automatically
   ...Object.keys(window).filter(k => k.startsWith('test') && typeof window[k] === 'function').map(k => window[k]),
 ];
 
