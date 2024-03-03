@@ -1,3 +1,4 @@
+.list,
 .list_entries {
   list-style-type: none;
   padding-left: 0;
@@ -10,6 +11,10 @@
 }
 
 .list__entry {
+  margin-top: 12px;
+}
+
+.list_add {
   margin-top: 12px;
 }
 

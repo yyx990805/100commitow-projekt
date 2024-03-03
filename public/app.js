@@ -53,6 +53,45 @@
     },
   }
 
+  const XSourcesList = {
+    name: 'x-sources-list',
+    template: `
+      <div>
+        <ul class="list list_sources">
+          <li v-for="(e, i) in $root.sources" class="list__entry">
+            <h2>{{e.name}}</h2>
+            <dl>
+              <dt>Nazwa</dt>
+              <dd>
+              <input type="text" v-model="e.name"/>
+              </dd>
+              <dt>URL</dt>
+              <dd>
+                <input type="text" v-model="e.url"/>
+              </dd>
+            </dl>
+            <button @click="$root.sources.splice(i, 1)">Usuń</button>
+          </li>
+          <button @click="$root.sources.push({name: '', url: '', })"
+            class="list_add"
+            >Dodaj źródło</button
+            >
+        </ul>
+        <div>
+          <button v-if="$root.dev" @click="() => {$root.sources.push(...$root.sources.slice(-1))}"
+            >Powiel ostatnie</button
+          >
+        </div>
+      </div>
+    `,
+    methods: {
+      /** @typedef {import('./initdata').Entry} Entry */
+      getSentiment(/** @type Entry */ e) {
+        return `<span :title='${JSON.stringify(e.sentiment)}'>${e?.sentiment?.plus || 0}:-${parseInt(e?.sentiment?.minus, 10) || 0}</span>`
+      },
+    },
+  }
+
   const XApp = {
     components: {
       'x-main-list': XMainList, // catchy and tricky
@@ -65,6 +104,7 @@
             <div v-html="STRINGS[\`INFO_\${hash}\`]"></div>
             <x-main-list v-if="$root.hash === ''">
             </x-main-list>
+            <x-sources-list v-else-if="$root.hash == '#db'"/>
             <div v-else>{{ hash }}</div>
           </div>
         </div>
@@ -80,6 +120,7 @@
     components: {
       'nav-100c': XNav,
       'x-main-list': XMainList,
+      XSourcesList,
     },
     el: '#app',
     data: () => ({
@@ -88,6 +129,7 @@
       dev: false,
       STRINGS: window.STRINGS,
       entries: window.ENTRIES,
+      sources: window.SOURCES,
     }),
     mounted() {
       window.addEventListener('hashchange', (ev) => {

@@ -17,3 +17,9 @@ Na chwilę obecną wykonano następujące mechanizmy:
 * Klonowanie ostatniego wpisu (devmode)
 * Autorejestrowanie testów w systemie (`global scope` w js)
 * Toggling devtools (`contextmenu` na `#navbar`)
+* Zarządzanie źródłami
+  * wypisywanie
+  * dodanie
+  * usunięcie
+  * modyfikacja
+  * zadano początkowe źródła

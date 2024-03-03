@@ -1,8 +1,8 @@
 const _tests = [
-  // test1,
-  // test2,
-  // test3, // no  needed, all tests will be detected automatically
-  ...Object.keys(window).filter(k => k.startsWith('test') && typeof window[k] === 'function').map(k => window[k]),
+  test1,
+  test2,
+  test3,
+  ...Object.keys(window).filter(k => k.startsWith('test')).map(k => window[k]),
 ];
 
 function test1(document, window) {
@@ -28,16 +28,19 @@ async function test3() {
   console.assert(dest.classList.contains('active'), 'menu entry does not have .active, it has', dest.classList, {dest})
 }
 
-function testAppGeneral() {
-  // non-existent routes should show its endpoint as string
-}
-
 function testMainEntriesView() {
   // should render initial entries
   // should render title, short and sentiment plus minus
   // should parse plus minus as int
   // in devmode should be clone last entry
   // check for new entries should be disabled (if the api endpoint is not operational)
+}
+
+function testSourcesList() {
+  // sources should be listed with name and url
+  // changing name or url should change internal state
+  // source can be deleted
+  // can add new source
 }
 
 async function runTests() {
