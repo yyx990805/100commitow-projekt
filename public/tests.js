@@ -25,6 +25,10 @@ async function test3() {
   console.assert(dest.classList.contains('active'), 'menu entry does not have .active, it has', dest.classList, {dest})
 }
 
+function testAppGeneral() {
+  // non-existent routes should show its endpoint as string
+}
+
 function testMainEntriesView() {
   // should render initial entries
   // should render title, short and sentiment plus minus
