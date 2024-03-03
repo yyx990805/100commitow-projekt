@@ -1,5 +1,5 @@
 const _tests = [
-  ...Object.keys(window).filter(k => k.startsWith('test')).map(k => window[k]),
+  ...Object.keys(window).filter(k => k.startsWith('test') && typeof window[k] === 'function').map(k => window[k]),
 ];
 
 function test1(document, window) {

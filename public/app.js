@@ -84,12 +84,6 @@
         </div>
       </div>
     `,
-    methods: {
-      /** @typedef {import('./initdata').Entry} Entry */
-      getSentiment(/** @type Entry */ e) {
-        return `<span :title='${JSON.stringify(e.sentiment)}'>${e?.sentiment?.plus || 0}:-${parseInt(e?.sentiment?.minus, 10) || 0}</span>`
-      },
-    },
   }
 
   const XApp = {
