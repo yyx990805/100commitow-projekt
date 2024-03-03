@@ -1,7 +1,4 @@
 const _tests = [
-  test1,
-  test2,
-  test3,
   ...Object.keys(window).filter(k => k.startsWith('test')).map(k => window[k]),
 ];
 
