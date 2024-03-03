@@ -37,6 +37,13 @@ function testMainEntriesView() {
   // check for new entries should be disabled (if the api endpoint is not operational)
 }
 
+function testSourcesList() {
+  // sources should be listed with name and url
+  // changing name or url should change internal state
+  // source can be deleted
+  // can add new source
+}
+
 async function runTests() {
   return _tests.map(async (e, i, arr) => {
     [await e(document, window), e];
