@@ -44,6 +44,12 @@ function testSourcesList() {
   // can add new source
 }
 
+function testSentimentsList() {
+  // sentiments should be listed with name, keywords (tags) and isPositive
+  // sentiments can be deleted
+  // can add new sentiment
+}
+
 async function runTests() {
   return _tests.map(async (e, i, arr) => {
     [await e(document, window), e];

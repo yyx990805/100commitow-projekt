@@ -85,11 +85,44 @@
       </div>
     `,
   }
+  const XSentimentsList = {
+    name: 'x-sources-list',
+    template: `
+      <div>
+        <ul class="list list_sentiments">
+          <li v-for="(e, i) in $root.sentiments" class="list__entry">
+            <h2>{{e.name}}</h2>
+            <dl>
+              <dt>Nazwa</dt>
+              <dd>
+                <input type="text" v-model="e.name"/>
+              </dd>
+              <dt>Słowa kluczowe</dt>
+              <dd>
+                <input type="text" v-model="e.keywords"/>
+              </dd>
+              <dt>Pozytywny</dt>
+              <dd>
+                <input type="checkbox" v-model="e.positive"/>
+              </dd>
+            </dl>
+            <button @click="$root.sentiments.splice(i, 1)">Usuń</button>
+          </li>
+          <button @click="$root.sentiments.push({name: '', url: '', })"
+            class="list_add"
+            >Dodaj sentyment</button
+            >
+        </ul>
+        <div>
+          <button v-if="$root.dev" @click="() => {$root.sources.push(...$root.sources.slice(-1))}"
+            >Powiel ostatnie</button
+          >
+        </div>
+      </div>
+    `,
+  }
 
   const XApp = {
-    components: {
-      'x-main-list': XMainList, // catchy and tricky
-    },
     template: `
       <div>
         <nav-100c/>
@@ -99,6 +132,7 @@
             <x-main-list v-if="$root.hash === ''">
             </x-main-list>
             <x-sources-list v-else-if="$root.hash == '#db'"/>
+            <x-sentiments-list v-else-if="$root.hash == '#config'"/>
             <div v-else>{{ hash }}</div>
           </div>
         </div>
@@ -115,6 +149,7 @@
       'nav-100c': XNav,
       'x-main-list': XMainList,
       XSourcesList,
+      XSentimentsList,
     },
     el: '#app',
     data: () => ({
@@ -124,6 +159,7 @@
       STRINGS: window.STRINGS,
       entries: window.ENTRIES,
       sources: window.SOURCES,
+      sentiments: window.SENTIMENTS,
     }),
     mounted() {
       window.addEventListener('hashchange', (ev) => {

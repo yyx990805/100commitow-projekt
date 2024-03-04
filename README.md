@@ -23,3 +23,9 @@ Na chwilę obecną wykonano następujące mechanizmy:
   * usunięcie
   * modyfikacja
   * zadano początkowe źródła
+* Zarządzanie sentymentami
+  * wylistowanie
+  * dodanie
+  * modyfikacja
+  * usunięcie
+  * wprowadzono początkowy sentyment ([Prawo nagłówków Betteridge’a](https://pl.wikipedia.org/wiki/Prawo_nag%C5%82%C3%B3wk%C3%B3w_Betteridge%E2%80%99a))
