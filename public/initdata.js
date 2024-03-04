@@ -59,4 +59,18 @@ window.SOURCES = [
     name: '100commitów',
     url: 'https://100commitow.pl/api/repositories?page=1&results=500',
   },
+  {
+    name: 'Turn off us',
+    url: 'https://turnoff.us/',
+  },
+];
+
+
+window.SENTIMENTS = [
+  {
+    name: "Prawo nagłówków betteridge'a",
+    keywords: 'news.title,contains("?")',
+    desc: 'jeśli w tytule newsa zawarte jest pytanie, to odpowiedź na nie brzmi: nie',
+    positive: false,
+  }
 ];
