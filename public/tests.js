@@ -50,6 +50,11 @@ function testSentimentsList() {
   // can add new sentiment
 }
 
+function buildingContentsList() {
+  // should go through all sources
+  // returned contents should be in proper format (required props for ui component)
+}
+
 async function runTests() {
   return _tests.map(async (e, i, arr) => {
     [await e(document, window), e];
