@@ -29,3 +29,4 @@ Na chwilę obecną wykonano następujące mechanizmy:
   * modyfikacja
   * usunięcie
   * wprowadzono początkowy sentyment ([Prawo nagłówków Betteridge’a](https://pl.wikipedia.org/wiki/Prawo_nag%C5%82%C3%B3wk%C3%B3w_Betteridge%E2%80%99a))
+* Usługa do iterowania przez źródła treści i budująca listę wpisów

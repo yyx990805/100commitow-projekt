@@ -40,7 +40,7 @@
           </li>
         </ul>
         <div>
-          <button disabled>Sprawdź nowe</button>
+          <button @click="$root.entries = $root.contentsService.getContents()">Sprawdź nowe</button>
           <button v-if="$root.dev" @click="() => {$root.entries.push(...$root.entries.slice(-1))}">Powiel ostatnie</button>
         </div>
       </div>
@@ -161,6 +161,11 @@
       sources: window.SOURCES,
       sentiments: window.SENTIMENTS,
     }),
+    computed: {
+      contentsService() {
+        return buildContentsService(this.sources, this)
+      }
+    },
     mounted() {
       window.addEventListener('hashchange', (ev) => {
         this.hash = ev.target.location.hash
@@ -174,4 +179,19 @@
       runTests: window.runTests,
     },
   }))
+}
+
+function buildContentsService(sources, host) {
+  return {
+    getContents() {
+      const sourcesWithContents = sources.map(e => {
+        return {
+          title: `Content from ${e.name}`,
+          short: 'short desc',
+          sentiment: {},
+        }
+      })
+      return [].concat(...sourcesWithContents)
+    }
+  }
 }
