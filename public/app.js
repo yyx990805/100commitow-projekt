@@ -1,7 +1,7 @@
 {
   const XNav = {
     template: `
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-inverse">
       <div class="container">
         <div class="navbar-header">
           <a class="navbar-brand" href="/100commitow-projekt" v-html="$root.env.TITLE"></a>
