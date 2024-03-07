@@ -55,6 +55,11 @@
 
   const XSourcesList = {
     name: 'x-sources-list',
+    data() {
+      return {
+        window,
+      }
+    },
     template: `
       <div>
         <ul class="list list_sources">
@@ -68,6 +73,18 @@
               <dt>URL</dt>
               <dd>
                 <input type="text" v-model="e.url"/>
+              </dd>
+              <dt>selektor css artykułu</dt>
+              <dd>
+                <input type="text" v-model="e.selectorArticle"/>
+              </dd>
+              <dt>selektor css linku do kolejnej strony</dt>
+              <dd>
+                <input type="text" v-model="e.selectorNextPage"/>
+              </dd>
+              <dt>Sprawdź scraper</dt>
+              <dd>
+                <button @click="window.alert(JSON.stringify({entry: e, 'cmd': 'parse'}, null, 2))">Przetwórz stronę główną</button>
               </dd>
             </dl>
             <button @click="$root.sources.splice(i, 1)">Usuń</button>

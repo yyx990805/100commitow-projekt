@@ -36,6 +36,8 @@ window.SOURCES = [
   {
     name: "Lemmy",
     url: "https://lemmy.ml",
+    selectorArticle: '.post-listing',
+    selectorNextPage: 'paginator > button',
   },
   {
     name: "Postmill",
