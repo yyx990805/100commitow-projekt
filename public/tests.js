@@ -42,6 +42,8 @@ function testSourcesList() {
   // changing name or url should change internal state
   // source can be deleted
   // can add new source
+  // contains selectorArticle selectorNextPage
+  // clicking test parsing for source entries uses selectorArticle selectorNextPage
 }
 
 function testSentimentsList() {
