@@ -36,6 +36,8 @@ window.SOURCES = [
   {
     name: "Lemmy",
     url: "https://lemmy.ml",
+    selectorArticle: '.post-listing',
+    selectorNextPage: 'paginator > button',
   },
   {
     name: "Postmill",
@@ -63,6 +65,7 @@ window.SOURCES = [
     name: 'Turn off us',
     url: 'https://turnoff.us/',
   },
+  // https://devhacksandgoodies.wordpress.com/2014/09/10/kohana-delete-orm-object-with-related-objects/
 ];
 
 
