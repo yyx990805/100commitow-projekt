@@ -74,6 +74,12 @@
               <dd>
                 <input type="text" v-model="e.url"/>
               </dd>
+              <dt>Typ zasoby</dt>
+              <dd>
+                <input type="radio" name="type" v-model="e.type" value="html"/> HTML<br/>
+                <input type="radio" name="type" v-model="e.type" value="json"/> REST API
+              </dd>
+              <div v-if="e.type === 'html'">
               <dt>selektor css artykułu</dt>
               <dd>
                 <input type="text" v-model="e.selectorArticle"/>
@@ -82,6 +88,17 @@
               <dd>
                 <input type="text" v-model="e.selectorNextPage"/>
               </dd>
+              </div>
+              <div v-if="e.type === 'json'">
+                <dt>jsonpath artykułu</dt>
+                <dd>
+                  <input type="text" v-model="e.jsonPath"/>
+                </dd>
+                <dt>Iterator stron {pageNr}</dt>
+                <dd>
+                  <input type="text" v-model="e.jsonPagesUrl"/>
+                </dd>
+              </div>
               <dt>Sprawdź scraper</dt>
               <dd>
                 <button @click="window.alert(JSON.stringify({entry: e, 'cmd': 'parse'}, null, 2))">Przetwórz stronę główną</button>
@@ -89,7 +106,7 @@
             </dl>
             <button @click="$root.sources.splice(i, 1)">Usuń</button>
           </li>
-          <button @click="$root.sources.push({name: '', url: '', })"
+          <button @click="$root.sources.push({name: '', url: '', type: 'html'})"
             class="list_add"
             >Dodaj źródło</button
             >

@@ -44,6 +44,7 @@ function testSourcesList() {
   // can add new source
   // contains selectorArticle selectorNextPage
   // clicking test parsing for source entries uses selectorArticle selectorNextPage
+  // can fetch data from an REST API JSON
 }
 
 function testSentimentsList() {
