@@ -51,6 +51,9 @@ function testSentimentsList() {
   // sentiments should be listed with name, keywords (tags) and isPositive
   // sentiments can be deleted
   // can add new sentiment
+  // can have keywords (positive and negative)
+  // can have js snippet
+  // TODO which is executed on parsing
 }
 
 function buildingContentsList() {
