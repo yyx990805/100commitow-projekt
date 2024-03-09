@@ -120,7 +120,7 @@
     `,
   }
   const XSentimentsList = {
-    name: 'x-sources-list',
+    name: 'x-sentiments-list',
     template: `
       <div>
         <ul class="list list_sentiments">
@@ -135,10 +135,26 @@
               <dd>
                 <input type="text" v-model="e.keywords"/>
               </dd>
-              <dt>Pozytywny</dt>
               <dd>
-                <input type="checkbox" v-model="e.positive"/>
+                <label><input type="radio" name="type" v-model="e.type" value="keywords"/> zawiera słowa kluczowe</label><br/>
+                <label><input type="radio" name="type" v-model="e.type" value="codeSnippet"/>skrypt oceniający sentyment</label>
               </dd>
+              <div v-if="e.type === 'keywords'">
+                <dt>Pozytywny</dt>
+                <dd>
+                  <input type="text" v-model="e.positive"/>
+                </dd>
+                <dt>Negatywne</dt>
+                <dd>
+                  <input type="text" v-model="e.negative"/>
+                </dd>
+              </div>
+              <div v-if="e.type === 'codeSnippet'">
+                <dt>jsonpath</dt>
+                <dd>
+                  <textarea v-model="e.snippet"></textarea>
+                </dd>
+              </div>
             </dl>
             <button @click="$root.sentiments.splice(i, 1)">Usuń</button>
           </li>

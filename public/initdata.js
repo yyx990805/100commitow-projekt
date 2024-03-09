@@ -73,6 +73,11 @@ window.SENTIMENTS = [
     name: "Prawo nagłówków betteridge'a",
     keywords: 'news.title,contains("?")',
     desc: 'jeśli w tytule newsa zawarte jest pytanie, to odpowiedź na nie brzmi: nie',
-    positive: false,
+    type: 'codeSnippet',
+    positive: 'dobre',
+    negative: 'słabe',
+    snippet: `function parse(content) {
+  return {sentiment: Math.random() > .5 ? 1 : -1};
+}`,
   }
 ];
