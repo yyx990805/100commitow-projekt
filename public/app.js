@@ -37,6 +37,10 @@
             <span style="float: right" v-html="getSentiment(e)"></span>
             <p>{{e.short}}</p>
             <button title="chwilowo niedostępne">Czytaj</button>
+            <div v-if="e.hasSubcontents">
+              Pośredni zakumulowany sentyment podrzędny: {{ calcSubsentiment(e) }}
+              <!-- TODO: calculate indirect sentiment -->
+            </div>
           </li>
         </ul>
         <div>
@@ -49,6 +53,10 @@
       /** @typedef {import('./initdata').Entry} Entry */
       getSentiment(/** @type Entry */ e) {
         return `<span :title='${JSON.stringify(e.sentiment)}'>${e?.sentiment?.plus || 0}:-${parseInt(e?.sentiment?.minus, 10) || 0}</span>`
+      },
+      calcSubsentiment() {
+        // TODO add implementation
+        return 0;
       },
     },
   }
@@ -74,10 +82,21 @@
               <dd>
                 <input type="text" v-model="e.url"/>
               </dd>
-              <dt>Typ zasoby</dt>
+              <dt>Czy treść zależna?</dt>
               <dd>
-                <input type="radio" name="type" v-model="e.type" value="html"/> HTML<br/>
-                <input type="radio" name="type" v-model="e.type" value="json"/> REST API
+                <input type="checkbox" v-model="e.parent"/><br>
+                <small>treść zależna będzie pozwalała wyznaczać finalny sentyment komunikacji atomicznego za pomocą pośredniej analizy sentymentu
+                (tj. negatywny komentarz na negatywne zjawisko skutkuje pozytywnym sentymentem względem dokonującego pomiar)</small>
+                <br>
+                <select v-if="e.parent">
+                  <option v-for="el in $root.sources">{{el.name || JSON.stringify(el)}}</option>
+                </select>
+              </dd>
+              <dt>Typ zasobu</dt>
+              <dd>
+                <label><input type="radio" name="type" v-model="e.type" value="html"/> HTML</label><br/>
+                <label><input type="radio" name="type" v-model="e.type" value="json"/> REST API</label><br/>
+                <button v-if="e.type" @click="e.type = null">usuń zaznaczenie</button>
               </dd>
               <div v-if="e.type === 'html'">
               <dt>selektor css artykułu</dt>
@@ -130,10 +149,6 @@
               <dt>Nazwa</dt>
               <dd>
                 <input type="text" v-model="e.name"/>
-              </dd>
-              <dt>Słowa kluczowe</dt>
-              <dd>
-                <input type="text" v-model="e.keywords"/>
               </dd>
               <dd>
                 <label><input type="radio" name="type" v-model="e.type" value="keywords"/> zawiera słowa kluczowe</label><br/>

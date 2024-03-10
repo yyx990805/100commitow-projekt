@@ -38,6 +38,11 @@ window.SOURCES = [
     url: "https://lemmy.ml",
     selectorArticle: '.post-listing',
     selectorNextPage: 'paginator > button',
+    hasSubcontents: true,
+  },
+  {
+    name: 'Lemmy comments',
+    parent: 'Lemmy',
   },
   {
     name: "Postmill",
@@ -79,5 +84,6 @@ window.SENTIMENTS = [
     snippet: `function parse(content) {
   return {sentiment: Math.random() > .5 ? 1 : -1};
 }`,
-  }
+  },
+
 ];
