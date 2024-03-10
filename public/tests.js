@@ -35,6 +35,7 @@ function testMainEntriesView() {
   // should parse plus minus as int
   // in devmode should be clone last entry
   // check for new entries should be disabled (if the api endpoint is not operational)
+  // shows indirectly calculated sentiment (for subcontents)
 }
 
 function testSourcesList() {
@@ -45,6 +46,8 @@ function testSourcesList() {
   // contains selectorArticle selectorNextPage
   // clicking test parsing for source entries uses selectorArticle selectorNextPage
   // can fetch data from an REST API JSON
+  // can reset type selection
+  // can be subcontent of some other source
 }
 
 function testSentimentsList() {

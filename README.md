@@ -12,6 +12,7 @@ Na chwilę obecną wykonano następujące mechanizmy:
 * Sygnalizowanie obecnie aktywnej podstrony
 * Mechanizm uruchamiania testów w miejscu wdrożenia aplikacji (prawy klik na navbar)
 * Widok listy wpisów
+  * pokazywanie skumulowanego sentymentu pośredniego dla wpisów
 * Stylowanie RWD `@media`
 * Przykładowy wpis (fixture)
 * Klonowanie ostatniego wpisu (devmode)
@@ -22,6 +23,9 @@ Na chwilę obecną wykonano następujące mechanizmy:
   * dodanie
   * usunięcie
   * modyfikacja
+  * zadanie typu (html/json)
+    * możliwość usunięcia zaznaczenia typu
+  * możliwość ustawienia źródła jako treść podlegająca innemu źródłowi
   * zadano początkowe źródła
 * Zarządzanie sentymentami
   * wylistowanie
