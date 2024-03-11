@@ -31,16 +31,24 @@
     template: `
       <div>
         <ul class="list_entries">
-          <li v-for="e in $root.entries" class="list__entry">
+          <li v-for="e in $root.entries" class="list__entry" v-if="e.parent === undefined">
             ` + ('TODO is there a way, to handle jsdoc type autocompletion here?', '') + `
-            <h2>{{e.title}}</h2>
+            <h2 :title="JSON.stringify(e, null, 2)">{{e.title}}</h2>
             <span style="float: right" v-html="getSentiment(e)"></span>
             <p>{{e.short}}</p>
             <button title="chwilowo niedostępne">Czytaj</button>
             <div v-if="e.hasSubcontents">
-              Pośredni zakumulowany sentyment podrzędny: {{ calcSubsentiment(e) }}
+              Pośredni podrzędny zakumulowany sentyment: {{ calcSubsentiment(e) }}
               <!-- TODO: calculate indirect sentiment -->
             </div>
+            <details v-if="e.subsources">
+              <summary>Podźródła</summary>
+              <div>
+                <ul>
+                  <li v-for="e2 in e.subsources">{{e2.name || JSON.stringify(e2)}}</li>
+                </ul>
+              </div>
+            </details>
           </li>
         </ul>
         <div>
@@ -246,14 +254,26 @@
   }))
 }
 
-function buildContentsService(sources, host) {
+function buildContentsService(sources = [], host) {
   return {
     getContents() {
       const sourcesWithContents = sources.map(e => {
+        // frontend friendly data structure
         return {
+          ...e,
           title: `Content from ${e.name}`,
           short: 'short desc',
           sentiment: {},
+        }
+      })
+      sources.map(e => {
+        // linking parent sources with subsources
+        const ent = sourcesWithContents.find(e2 => {
+          return e.parent == e2.name
+        })
+        if (ent) {
+          ent.subsources ||= []
+          ent.subsources.push(e)
         }
       })
       return [].concat(...sourcesWithContents)

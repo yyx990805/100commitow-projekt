@@ -13,6 +13,7 @@ Na chwilę obecną wykonano następujące mechanizmy:
 * Mechanizm uruchamiania testów w miejscu wdrożenia aplikacji (prawy klik na navbar)
 * Widok listy wpisów
   * pokazywanie skumulowanego sentymentu pośredniego dla wpisów
+  * wypisywanie z wyszczególnieniem podtreści wpisu (np. uwag użytkowników)
 * Stylowanie RWD `@media`
 * Przykładowy wpis (fixture)
 * Klonowanie ostatniego wpisu (devmode)
