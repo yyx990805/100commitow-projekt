@@ -35,6 +35,7 @@ function testMainEntriesView() {
   // should parse plus minus as int
   // in devmode should be clone last entry
   // check for new entries should be disabled (if the api endpoint is not operational)
+  // subcontents are listed within specific content
   // shows indirectly calculated sentiment (for subcontents)
 }
 
