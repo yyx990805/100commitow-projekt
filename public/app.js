@@ -160,7 +160,8 @@
               </dd>
               <dd>
                 <label><input type="radio" name="type" v-model="e.type" value="keywords"/> zawiera słowa kluczowe</label><br/>
-                <label><input type="radio" name="type" v-model="e.type" value="codeSnippet"/>skrypt oceniający sentyment</label>
+                <label><input type="radio" name="type" v-model="e.type" value="codeSnippet"/>skrypt oceniający sentyment</label><br/>
+                <label><input type="radio" name="type" v-model="e.type" value="fetchAndRate"/>wczytanie zasobu i ocenienie skryptem</label>
               </dd>
               <div v-if="e.type === 'keywords'">
                 <dt>Pozytywny</dt>
@@ -176,6 +177,16 @@
                 <dt>jsonpath</dt>
                 <dd>
                   <textarea v-model="e.snippet"></textarea>
+                </dd>
+              </div>
+              <div v-if="e.type === 'fetchAndRate'">
+                <dt>url/json path</dt>
+                <dd>
+                  <input type="text" v-model="e.url">
+                </dd>
+                <dt>url/json path</dt>
+                <dd>
+                  <textarea v-model="e.rateResource"></textarea>
                 </dd>
               </div>
             </dl>

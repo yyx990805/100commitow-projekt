@@ -27,6 +27,7 @@ Na chwilę obecną wykonano następujące mechanizmy:
   * zadanie typu (html/json)
     * możliwość usunięcia zaznaczenia typu
   * możliwość ustawienia źródła jako treść podlegająca innemu źródłowi
+  * typ źródła ocenianego za pomcoą wczytywania za pomocą podanego url (lub wyciągniętego za pomocą jsonpath) oraz snippetu oceny
   * zadano początkowe źródła
 * Zarządzanie sentymentami
   * wylistowanie
