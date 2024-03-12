@@ -47,6 +47,7 @@ function testSourcesList() {
   // contains selectorArticle selectorNextPage
   // clicking test parsing for source entries uses selectorArticle selectorNextPage
   // can fetch data from an REST API JSON
+  // can fetch and parse for sentiment rating
   // can reset type selection
   // can be subcontent of some other source
 }
