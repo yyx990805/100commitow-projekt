@@ -45,7 +45,7 @@
               <summary>Podźródła</summary>
               <div>
                 <ul>
-                  <li v-for="e2 in e.subsources">{{e2.name || JSON.stringify(e2)}}</li>
+                  <li v-for="e2 in e.subsources">{{e2.name || JSON.stringify(e2)}} ({{ getNumberOfEntries(e2, e) }} wpisów)</li>
                 </ul>
               </div>
             </details>
@@ -64,6 +64,9 @@
       },
       calcSubsentiment() {
         // TODO add implementation
+        return 0;
+      },
+      getNumberOfEntries(childSource, parentSource) {
         return 0;
       },
     },
@@ -184,7 +187,7 @@
                 <dd>
                   <input type="text" v-model="e.url">
                 </dd>
-                <dt>url/json path</dt>
+                <dt>rate resource snippet</dt>
                 <dd>
                   <textarea v-model="e.rateResource"></textarea>
                 </dd>

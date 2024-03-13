@@ -37,6 +37,7 @@ function testMainEntriesView() {
   // check for new entries should be disabled (if the api endpoint is not operational)
   // subcontents are listed within specific content
   // shows indirectly calculated sentiment (for subcontents)
+  // shows number of subentries `getNumberOfEntries`
 }
 
 function testSourcesList() {
