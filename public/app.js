@@ -45,7 +45,11 @@
               <summary>Podźródła</summary>
               <div>
                 <ul>
-                  <li v-for="e2 in e.subsources">{{e2.name || JSON.stringify(e2)}} ({{ getNumberOfEntries(e2, e) }} wpisów)</li>
+                  <li v-for="e2 in e.subsources"
+                    >{{e2.name || JSON.stringify(e2)}} ({{ getNumberOfEntries(e2, e) }} wpisów)
+                    <button @click="() => window.location.hash = '#db'">edytuj źródło</button>
+                    </li
+                  >
                 </ul>
               </div>
             </details>
@@ -57,6 +61,11 @@
         </div>
       </div>
     `,
+    data() {
+      return {
+        window,
+      }
+    },
     methods: {
       /** @typedef {import('./initdata').Entry} Entry */
       getSentiment(/** @type Entry */ e) {
