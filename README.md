@@ -2,6 +2,10 @@
 
 Links app with a sentiment scoring.
 
+# Status projektu
+
+▰▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱
+
 # Wykonano
 
 Na chwilę obecną wykonano następujące mechanizmy:
