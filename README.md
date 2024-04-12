@@ -4,7 +4,7 @@ Links app with a sentiment scoring.
 
 # Status projektu
 
-▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▱▱▱▱
+▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▱▱▱
 
 # Wykonano
 
